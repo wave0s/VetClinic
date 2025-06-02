@@ -36,7 +36,7 @@ public class VetClinic {
     private static void displayMenu() {
         System.out.println("\n1. Wellness Checkup");
         System.out.println("2. Neutering");
-        System.out.println("3. View Appointments");
+        System.out.println("3. View Transactions");
         System.out.println("4. Bill Patient");
         System.out.println("5. Exit");
         System.out.print("Choose option: ");
@@ -72,12 +72,12 @@ public class VetClinic {
         database.displayUnpaidAppointments();
         
         
-        System.out.print("Enter appointment ID to bill: ");
+        System.out.print("Enter ID::: ");
         int appointmentId = io.nextInt();
         
         vetService appointment = database.getAppointmentById(appointmentId);
         if (appointment == null) {
-            System.out.println("Invalid appointment ID.");
+            System.out.println("Invalid .");
             return;
         }
         
@@ -89,12 +89,12 @@ public class VetClinic {
         if (paidAmount >= totalBill) {
             database.markAsPaid(appointmentId);
             int change = paidAmount - totalBill;
-            System.out.println("Payment successful!");
+            System.out.println("Payment ssuccessful!");
             if (change > 0) {
                 System.out.println("Change: Php" + change);
             }
         } else {
-            System.out.println("Insufficient payment. Bill remains unpaid.");
+            System.out.println("Insufficient");
         }
     }
 }
