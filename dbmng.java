@@ -4,15 +4,14 @@ public class dbmng {
     private static final String URL = "jdbc:mysql://localhost:3306/vet_clinic";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
-    
+
     public dbmng() {
         createTable();
     }
-    
+
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
-    
     private void createTable() {
         String sql = """
             CREATE TABLE IF NOT EXISTS appointments (
@@ -47,7 +46,7 @@ public class dbmng {
             System.out.println("Appointment saved to database.");
             
         } catch (SQLException e) {
-            System.out.println("Error adding appointment: " + e.getMessage());
+            System.out.println("Error t: " + e.getMessage());
         }
     }
     
@@ -77,7 +76,7 @@ public class dbmng {
             }
             
         } catch (SQLException e) {
-            System.out.println("Error displaying appointments: " + e.getMessage());
+            System.out.println("Error/s: " + e.getMessage());
         }
     }
     
@@ -101,11 +100,11 @@ public class dbmng {
             }
             
             if (!hasUnpaid) {
-                System.out.println("No unpaid appointments.");
+                System.out.println("Nothing to see here.");
             }
             
         } catch (SQLException e) {
-            System.out.println("Error displaying unpaid appointments: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
     
@@ -131,7 +130,7 @@ public class dbmng {
             }
             
         } catch (SQLException e) {
-            System.out.println("Error getting appointment: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
         
         return null;
@@ -147,7 +146,7 @@ public class dbmng {
             int rowsUpdated = pstmt.executeUpdate();
             
             if (rowsUpdated > 0) {
-                System.out.println("Appointment marked as paid in database.");
+                System.out.println("Transaction Completee");
             }
             
         } catch (SQLException e) {
